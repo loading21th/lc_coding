@@ -65,6 +65,8 @@ list_t *list_insert(list_t *list, int index, int data)
         list->head = new_node;
         list->tail = new_node;
         new_node->next = NULL;
+        list->size++;
+        return list;
     }
 
     node_t *node = list->head;
@@ -79,6 +81,9 @@ list_t *list_insert(list_t *list, int index, int data)
     } else {
         pre->next = new_node;
         new_node->next = node;
+        if (pre == list->tail) {
+            list->tail = new_node;
+        }
     }
     list->size++;
 
@@ -184,6 +189,33 @@ list_t *list_del_node_tail(list_t *list)
 }
 
 
+list_t *list_reverse(list_t *list)
+{
+    if (NULL == list) {
+        return NULL;
+    }
+    if (list->size < 2) {
+        return list;
+    }
+
+    node_t *first = list->head;
+    node_t *second = list->head->next;
+    first->next = NULL;
+
+    while(NULL != second) {
+        node_t *tmp = second->next;
+        second->next = first;
+        first = second;
+        second = tmp;
+    }
+
+    node_t *tmp = list->head;
+    list->head = list->tail;
+    list->tail = tmp;
+    return list;
+}
+
+
 void list_show(list_t *list)
 {
     node_t *node = list->head;
@@ -203,6 +235,7 @@ size_t list_length(list_t *list)
 int main(int argc, char *argv[])
 {
     list_t *list = list_init();
+#if 0
     list_add_node_tail(list, 1);
     list_add_node_tail(list, 2);
     list_add_node_tail(list, 3);
@@ -211,9 +244,17 @@ int main(int argc, char *argv[])
     list_add_node_tail(list, 6);
     list_del_node_tail(list);
     list_add_node_head(list, 100);
+#endif
     list_insert(list, 0, 222);
+    list_insert(list, 0, 223);
+    list_insert(list, 0, 224);
+    list_insert(list, 0, 225);
+    list_insert(list, 3, 226);
+    list_insert(list, 5, 227);
     list_show(list);
-    printf("%d data is %d\n", 2, list_find_by_index(list, 2)->data);
+    printf("----\n");
+    list_reverse(list); 
+    list_show(list);
     printf("list length = %zu\n", list_length(list));
     list_deinit(list);
 }
