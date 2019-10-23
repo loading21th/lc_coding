@@ -216,6 +216,15 @@ list_t *list_reverse(list_t *list)
 }
 
 
+/**
+ *  链表的常见面试题：
+ *  0. 单链表反转
+ *  1. 链表中环的检测
+ *  2. 两个有序链表合并
+ *  3. 求链表的中间结点
+ *  4. 删除链表倒数第 n 个结点
+ */
+
 void list_show(list_t *list)
 {
     node_t *node = list->head;
