@@ -12,5 +12,7 @@
 
 ## datastruct
 
-* [x] array（数组）
+* [ ] string（字符串）
+* [ ] array（数组）
+* [ ] queue（队列）
 * [ ] list（链表） 
