@@ -1,10 +1,10 @@
 ## LeetCode 算法题
 
-| # No | Title           | Solution | Difficulty |    Date    |
-| :--: | :-------------- | :------- | :--------: | :--------: |
-| 1024 | Video Stitching | C        |   Medium   | 2020.04.18 |
-|      |                 |          |            |            |
-|      |                 |          |            |            |
+| # No | Title                                                 | Solution                                                     | Difficulty |    Date    |
+| :--: | :---------------------------------------------------- | :----------------------------------------------------------- | :--------: | :--------: |
+| #001 | [两数之和](https://leetcode-cn.com/problems/two-sum/) | [C](https://github.com/liwei0526vip/datastruct/leetcode/c/twoSum.c) |   Medium   | 2020.04.19 |
+|      |                                                       |                                                              |            |            |
+|      |                                                       |                                                              |            |            |
 
 
 
