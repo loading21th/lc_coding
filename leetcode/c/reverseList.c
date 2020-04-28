@@ -1,26 +1,25 @@
-// Source: https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof
-
 /**
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
- *     struct ListNode *next;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-
-
-struct ListNode* reverseList(struct ListNode* head){
-    struct ListNode *prev, *next, *cur;
-    if (head == NULL)
-        return NULL;
-    prev = NULL;
-    cur  = head;
-    while(cur != NULL) {
-        next = cur->next;
-        cur->next = prev;
-        prev = cur;
-        cur = next;
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(head == NULL || head->next == NULL)  return head;
+        ListNode * now = head;
+        ListNode * son = head->next;
+        ListNode * gson;
+        now->next = NULL;
+        while(son){
+            gson = son->next;
+            son->next = now;
+            now = son;
+            son = gson;
+        }
+        return now;
     }
-    return prev;
-}
-
+};

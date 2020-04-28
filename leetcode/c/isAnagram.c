@@ -1,21 +1,16 @@
-// Source: https://leetcode-cn.com/problems/valid-anagram/
-
-bool isAnagram(char * s, char * t){
-    char buf[26] = {};
-    int i = 0, len = 0;
-
-    if (strlen(s) != strlen(t))
-        return false;
-
-    for (i = 0; s[i] != '\0'; i++)
-        buf[s[i] - 'a']++;
-    for (i = 0; t[i] != '\0'; i++)
-        buf[t[i] - 'a']--;
-
-    for (i = 0; i < 26; i++) {
-        if (buf[i] != 0)
-            return false;
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        char tmp[256]= {0};
+        for (int i =0;i <s.length();i++){
+            tmp[s[i]]++;
+        }
+        for(int i=0;i<t.length();i++){
+            tmp[t[i]]--;
+        }
+        for(int i=0;i<256;i++){
+            if(0 != tmp[i]) return false;
+        }
+        return true;
     }
-    return true;
-}
-
+};
